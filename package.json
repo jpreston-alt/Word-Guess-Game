@@ -1,0 +1,32 @@
+{
+  "name": "word-guess-game",
+  "version": "1.0.0",
+  "description": "command line word guess game",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jpreston-alt/Word-Guess-Game.git"
+  },
+  "keywords": [
+    "command",
+    "line",
+    "word",
+    "guess",
+    "game"
+  ],
+  "author": "Joanna Preston",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jpreston-alt/Word-Guess-Game/issues"
+  },
+  "homepage": "https://github.com/jpreston-alt/Word-Guess-Game#readme",
+  "dependencies": {
+    "inquirer": "^7.1.0"
+  }
+}
