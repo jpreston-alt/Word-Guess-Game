@@ -8,19 +8,11 @@ let remGuesses;
 
 init();
 
+// reset guesses to 10, generate new word, display board, inquire
 function init() {
-    // reset guesses to 10
     remGuesses = 10;
-
-    // generate new word
     newWord = new Word(randomWords());
-
-    makeGuess();
-};
-
-function makeGuess() {
     display();
-
     inquire();
 };
 
@@ -40,18 +32,23 @@ function inquire() {
         .then(function(data) {
             let { userGuess } = data;
             newWord.guessLetter(userGuess);
-            trackGuesses();
             display();
-            inquire();
-        })
+            if (newWord.guessedCorrectly() === true) {
+                console.log("You won!")
+                return;
+            } else {
+                trackGuesses();
+            }
+        });
 };
 
 // keep track of guesses left
 function trackGuesses() {
-    if (remGuesses > 0) {
+    if (remGuesses > 1) {
         remGuesses -= 1;
+        inquire();
     } else {
-        console.log("Game over! You ran out of guesses.")
+        console.log(`Game over! You ran out of guesses.\nThe correct answer was ${newWord.letters}.`)
     }
 };
 
@@ -61,10 +58,5 @@ function display() {
     You have ${remGuesses} guesses left. \n\n
     ${newWord.displayWord()}
     `;
-
     console.log(display);
 };
-
-
-
-
